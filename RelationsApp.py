@@ -1,5 +1,5 @@
 # NUMBER 1. Check properties of the relation:
-
+import numpy as np
 # reflexivity
 def is_reflexive(matrix):
     for i in range(len(matrix)):
@@ -163,3 +163,15 @@ def get_transitive_closure(matrix):
                         matrix_const[i][k] = 1
 
     return matrix_const
+
+
+def composition(matrix_1, matrix_2) -> np.array:
+    result = np.zeros((len(matrix_1), len(matrix_1)))
+
+    for x in range(len(matrix_1)):
+        for z in range(len(matrix_1)):
+            for y in range(len(matrix_1)):
+                if matrix_1[x][y] and matrix_2[y][z]:
+                    result[x][z] = 1
+
+    return result

@@ -31,6 +31,13 @@ matrix3 = [
 ]
 matrix_2_pow = np.reshape(np.dot(np.array(matrix3), np.array(matrix3)), (len(matrix3), len(matrix3)))
 matrix_3_pow = np.reshape(np.dot(matrix_2_pow, np.array(matrix3)), (len(matrix3), len(matrix3)))
+matrix4 = np.array([
+	[0, 1, 1, 1, 1],
+	[0, 0, 1, 1, 0],
+	[0, 1, 1, 1, 1],
+	[1, 1, 1, 0, 1],
+	[1, 1, 1, 1, 1]
+])
 
 print(f"Задане бінарне відношення:\n{np.reshape(np.array(matrix), (len(matrix), len(matrix)))}\n")
 print(f"""Властивості заданого відношення: 
@@ -55,7 +62,7 @@ print(f"""2 і 3 степінь заданого відношення:
 1 степінь:
 {np.reshape(np.array(matrix3), (len(matrix3), len(matrix3)))}
 2 степінь:
-{matrix_2_pow}
+{ra.composition(matrix4, matrix4)}
 3 степінь:
-{matrix_3_pow}
+{ra.composition(ra.composition(matrix4, matrix4), matrix4)}
 """)
